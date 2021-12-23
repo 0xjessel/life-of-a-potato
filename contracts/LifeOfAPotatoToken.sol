@@ -18,7 +18,8 @@ contract LifeOfAPotatoToken is ERC721URIStorage, Ownable {
 
     // for opensea collection
     function contractURI() public pure returns (string memory) {
-        return "https://ipfs.io/ipfs/your-collection-ipfshash";
+        return
+            "https://ipfs.io/ipfs/bafkreiaqzpxuafdnawyhk3bxdeumpetmuosxcslqiut5kxyowl3swlluru";
     }
 
     function mintItem(address receiver, string memory tokenURI)
