@@ -8,7 +8,7 @@ Huge S/O to Archie Smyth's [tutorial](https://dev.to/yournewempire/deploy-nfts-w
 
 ## Directions
 
-Create your .env file
-Get some testnet MATIC 
-Run `npx hardhat run scripts/deploy-script.js --network matic_testnet`
-Debug Opensea metadata via `https://testnets-api.opensea.io/asset/mumbai/0x324958b2165b4c3f6E7b24e76c782a37AfE6219D/2/validate
+* Create your .env file
+* Get some testnet MATIC 
+* Run `npx hardhat run scripts/deploy-script.js --network matic_testnet`
+* Debug Opensea metadata (ex: https://testnets-api.opensea.io/asset/mumbai/0x324958b2165b4c3f6E7b24e76c782a37AfE6219D/2/validate)
