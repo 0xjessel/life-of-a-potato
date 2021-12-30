@@ -4,7 +4,7 @@ require('dotenv').config();
 const OWNER_ADDRESS = process.env.OWNER_ADDRESS
 
 async function main() {
-    const NFT = await hre.ethers.getContractFactory("LifeOfAPotatoToken");
+    const NFT = await hre.ethers.getContractFactory("LifeOfAPotato");
     const nft = await NFT.deploy();
     await nft.deployed();
     console.log("NFT deployed to:", nft.address);
