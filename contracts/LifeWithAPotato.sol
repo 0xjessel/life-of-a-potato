@@ -5,11 +5,11 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
-contract LifeOfAPotato is ERC721URIStorage, Ownable {
+contract LifeWithAPotato is ERC721URIStorage, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
-    constructor() ERC721("LifeOfAPotato", "LFP") {}
+    constructor() ERC721("LifeWithAPotato", "LWP") {}
 
     // get the current supply of tokens
     function totalSupply() public view returns (uint256) {
@@ -19,7 +19,7 @@ contract LifeOfAPotato is ERC721URIStorage, Ownable {
     // for opensea collection
     function contractURI() public pure returns (string memory) {
         return
-            "https://ipfs.io/ipfs/bafkreigrk2gjuri7awrjgynetbwu5l5n2atgoas2gyvv6x3trarx4zeim4";
+            "https://ipfs.io/ipfs/bafkreiaf2tdi4vo3sg2dmibturrm52mzsr7bgbxf7vwlhddsbq47dkio2a";
     }
 
     function mintItem(address receiver, string memory tokenURI)

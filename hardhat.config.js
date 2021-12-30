@@ -22,7 +22,10 @@ module.exports = {
     hardhat: {},
     matic_testnet: {
       url: "https://rpc-mumbai.maticvigil.com",
-      accounts: [process.env.PRIVATE_KEY],
+      //accounts: [process.env.PRIVATE_KEY],
+      accounts: {
+        mnemonic: process.env.MNEMONIC,
+      },
       gasPrice: 8000000000
     },
     matic: {
