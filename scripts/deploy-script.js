@@ -26,6 +26,18 @@ async function main() {
       .mintItem(OWNER_ADDRESS, "https://ipfs.io/ipfs/bafkreib3hy26jvyye54m3d2lqz4fjspf74eopmrolks3ufcip6uaawgaqm")
       .then(console.log("minted: dreaming with a potato"))
       .catch(error => console.log(error));
+
+    // christmas with a potato
+    await nft
+      .mintItem(OWNER_ADDRESS, "https://ipfs.io/ipfs/bafkreidpi4o2gamqvqnt3khvtcqsc3ut6xe7lhh2mp2tanl3bw7d7dpgnq")
+      .then(console.log("minted: christmas with a potato"))
+      .catch(error => console.log(error));
+
+    // camping with a potato
+    await nft
+      .mintItem(OWNER_ADDRESS, "https://ipfs.io/ipfs/bafkreidpi4o2gamqvqnt3khvtcqsc3ut6xe7lhh2mp2tanl3bw7d7dpgnq")
+      .then(console.log("minted: camping with a potato"))
+      .catch(error => console.log(error));
 }
 
 main().then(() => process.exit(0)).catch(error => {
