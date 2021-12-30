@@ -25,5 +25,12 @@ module.exports = {
       accounts: [process.env.PRIVATE_KEY],
       gasPrice: 8000000000
     },
+    matic: {
+      url: "https://polygon-rpc.com/",
+      //accounts: [process.env.PRIVATE_KEY],
+      accounts: {
+        mnemonic: process.env.MNEMONIC,
+      },
+    },
   },
 };

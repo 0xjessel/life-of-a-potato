@@ -35,7 +35,7 @@ async function main() {
 
     // camping with a potato
     await nft
-      .mintItem(OWNER_ADDRESS, "https://ipfs.io/ipfs/bafkreidpi4o2gamqvqnt3khvtcqsc3ut6xe7lhh2mp2tanl3bw7d7dpgnq")
+      .mintItem(OWNER_ADDRESS, "https://ipfs.io/ipfs/bafkreigwzds6v2ogvlh4mljwi4pefc4frqis567x67y67hv6zntuv4done")
       .then(console.log("minted: camping with a potato"))
       .catch(error => console.log(error));
 }
