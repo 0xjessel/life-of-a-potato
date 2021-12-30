@@ -1,6 +1,8 @@
 {
   "name": "Life of a Potato",
   "description": "Whimsical imagery of a potato's time in Hawaii",
-  "image": "https://ipfs.io/ipfs/bafybeibgaz4ha7ryrp6c5li7tbfhvncareajxrhylhsgqq3jdtzssr75ei",
-  "external_link": "https://en.wikipedia.org/wiki/Potat://en.wikipedia.org/wiki/Potato"
+  "image": "https://ipfs.io/ipfs/bafybeichu2dsfemr44h4f44yqfxffray72pudpmgkdairinwheako2nxfu",
+  "external_link": "https://en.wikipedia.org/wiki/Potato",
+  "seller_fee_basis_points": 100, 
+  "fee_recipient": "0x1Ff37F8fE8c9adE1854822d48d33416F880Ff242" 
 }
