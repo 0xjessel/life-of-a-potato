@@ -26,10 +26,9 @@ module.exports = {
       accounts: {
         mnemonic: process.env.MNEMONIC,
       },
-      gasPrice: 8000000000
     },
     matic: {
-      url: "https://polygon-rpc.com/",
+      url: "https://rpc-mainnet.maticvigil.com/",
       //accounts: [process.env.PRIVATE_KEY],
       accounts: {
         mnemonic: process.env.MNEMONIC,
