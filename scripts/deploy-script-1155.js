@@ -3,7 +3,7 @@ require('dotenv').config();
 
 
 async function main() {
-    const NFT = await hre.ethers.getContractFactory("LifeWithAPotato-1155");
+    const NFT = await hre.ethers.getContractFactory("LifeWithAPotato1155");
     const nft = await NFT.deploy();
     await nft.deployed();
     console.log("NFT deployed to:", nft.address);
