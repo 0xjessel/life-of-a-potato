@@ -2,9 +2,11 @@
 pragma solidity ^0.8.2;
 
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
 import "@openzeppelin/contracts/utils/Strings.sol";
 
-contract LifeWithAPotato1155 is ERC1155 {
+contract LifeWithAPotato1155 is ERC1155, Ownable {
     uint256 public constant BEACH_DAY = 1;
     uint256 public constant CAMPING = 2;
     uint256 public constant CHRISTMAS = 3;
@@ -13,11 +15,17 @@ contract LifeWithAPotato1155 is ERC1155 {
 
     uint256 private constant COUNT = 100;
 
+    string public name;
+    string public symbol;
+
     constructor()
         ERC1155(
-            "https://ipfs.io/ipfs/bafybeibbq4v2sstxm3dkhph732422wmfxde5ajdec5hhycaio5tioonfou/"
+            "ipfs://bafybeifbeuiqpgs6kfdmk3mlpg2qb2npa3lregvqomgvlbyfpqhgdq7jbu/{id}.json"
         )
     {
+        name = "Life With a Potato";
+        symbol = "LWAP";
+
         // Allow for COUNT copies each
         _mint(msg.sender, BEACH_DAY, COUNT, "");
         _mint(msg.sender, CAMPING, COUNT, "");
@@ -41,7 +49,7 @@ contract LifeWithAPotato1155 is ERC1155 {
         return
             string(
                 abi.encodePacked(
-                    "https://ipfs.io/ipfs/bafybeibbq4v2sstxm3dkhph732422wmfxde5ajdec5hhycaio5tioonfou/",
+                    "ipfs://bafybeifbeuiqpgs6kfdmk3mlpg2qb2npa3lregvqomgvlbyfpqhgdq7jbu/",
                     Strings.toString(_tokenid),
                     ".json"
                 )
