@@ -4,6 +4,7 @@ const MNEMONIC = process.env.MNEMONIC;
 const FACTORY_CONTRACT_ADDRESS = process.env.FACTORY_CONTRACT_ADDRESS;
 const INFURA_KEY = process.env.INFURA_KEY;
 const OPEN_SEA_API_KEY = process.env.OPEN_SEA_API_KEY || "";
+const OWNER_ADDRESS = process.env.OWNER_ADDRESS;
 
 if (!FACTORY_CONTRACT_ADDRESS) {
     console.error("Please specify a factory contract address.");
@@ -42,16 +43,21 @@ const seaport = new OpenSeaPort(
 );
 
 
-const expirationTime = (Date.now() / 1000 + 60 * 60 * 24 * 180) // Expires 6mo from now
+const expirationTime = parseInt(Date.now() / 1000 + 60 * 60 * 24 * 180) // Expires 6mo from now
 
 const sell = async () => {
     const sellOrders = await seaport.createFactorySellOrders({
-        assetId: "1",
+        assets: [
+            {
+              tokenId: "1",
+              tokenAddress: FACTORY_CONTRACT_ADDRESS,
+            },
+          ],
         factoryAddress: FACTORY_CONTRACT_ADDRESS,
-        accountAddress,
-        startAmount,
+        accountAddress: OWNER_ADDRESS,
+        startAmount: 0.05,
         expirationTime,
-        numberOfOrders: 100 // Will create 100 sell orders in parallel batches to speed things up
+        numberOfOrders: 1 // Will create 100 sell orders in parallel batches to speed things up
       })
       
       console.log(sellOrders)
