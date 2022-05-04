@@ -6,6 +6,7 @@
     "nft.storage": "^3.2.0"
   },
   "devDependencies": {
+    "@0x/subproviders": "^6.6.5",
     "@nomiclabs/hardhat-ethers": "^2.0.3",
     "@nomiclabs/hardhat-etherscan": "^3.0.3",
     "ethereum-waffle": "^3.4.0",
