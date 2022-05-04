@@ -11,6 +11,7 @@ if (!FACTORY_CONTRACT_ADDRESS) {
 }
 
 const opensea = require("opensea-js");
+const { WyvernSchemaName } = require('opensea-js/lib/types');
 const RPCSubprovider = require("web3-provider-engine/subproviders/rpc");
 const Web3ProviderEngine = require("web3-provider-engine");
 const MnemonicWalletSubprovider = require("@0x/subproviders").MnemonicWalletSubprovider;
@@ -37,7 +38,7 @@ const seaport = new OpenSeaPort(
   providerEngine,
   {
     networkName: Network.Rinkeby,
-    //apiKey: OPEN_SEA_API_KEY,
+    // apiKey: OPEN_SEA_API_KEY, // will get throttled if this is not passed in
   },
   (arg) => console.log(arg)
 );
@@ -45,22 +46,22 @@ const seaport = new OpenSeaPort(
 
 const expirationTime = parseInt(Date.now() / 1000 + 60 * 60 * 24 * 180) // Expires 6mo from now
 
-const sell = async () => {
-    const sellOrders = await seaport.createFactorySellOrders({
-        assets: [
-            {
-              tokenId: "1",
-              tokenAddress: FACTORY_CONTRACT_ADDRESS,
-            },
-          ],
-        factoryAddress: FACTORY_CONTRACT_ADDRESS,
-        accountAddress: OWNER_ADDRESS,
+const listItemOnOpenSea = async (tokenId) => {
+    await seaport.createSellOrder({
+        asset: {
+          tokenId,
+          tokenAddress: FACTORY_CONTRACT_ADDRESS,
+          schemaName: WyvernSchemaName.ERC1155
+        },
         startAmount: 0.05,
         expirationTime,
-        numberOfOrders: 1 // Will create 100 sell orders in parallel batches to speed things up
-      })
-      
-      console.log(sellOrders)
+        accountAddress: OWNER_ADDRESS,
+      });
+    console.log(`Done listing token ${tokenId} for sell`)
 }
 
-sell()
+let counter = 0
+setInterval(() => {
+    counter = ++counter % 5 + 1 
+    listItemOnOpenSea(counter);
+}, 4000);
