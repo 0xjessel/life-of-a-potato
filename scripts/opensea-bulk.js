@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const MNEMONIC = process.env.MNEMONIC;
 const FACTORY_CONTRACT_ADDRESS = process.env.FACTORY_CONTRACT_ADDRESS;
 const INFURA_KEY = process.env.INFURA_KEY;
@@ -34,7 +36,7 @@ const seaport = new OpenSeaPort(
   providerEngine,
   {
     networkName: Network.Rinkeby,
-    apiKey: OPEN_SEA_API_KEY,
+    //apiKey: OPEN_SEA_API_KEY,
   },
   (arg) => console.log(arg)
 );
